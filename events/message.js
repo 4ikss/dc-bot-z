@@ -2,6 +2,7 @@ export default client => {
     const prefix = process.env.prefix;
     client.on("messageCreate", message => {
 
+        
         if (!message.content.startsWith(prefix)) return;
 
         const args = message.content.toLowerCase().slice(prefix.length).trim().split(/ +/);
