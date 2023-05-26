@@ -34,15 +34,15 @@ readdirSync("./commands").forEach(async file => {
     client.commands.set(command.name, command);
 }),
 
-client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isCommand()) return;
+    client.on('interactionCreate', async (interaction) => {
+        if (!interaction.isCommand()) return;
 
-    const { commandName } = interaction;
+        const { commandName } = interaction;
 
-    if (commandName === 'ping') {
+        if (commandName === 'ping') {
             await pingCommand(interaction);
-    }
-});
+        }
+    });
 
 async function pingCommand(interaction) {
     await interaction.reply('Pong!');

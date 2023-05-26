@@ -2,9 +2,12 @@ export default {
     name: "yaz",
     execute(message) {
         const prefix = process.env.prefix;
-        const text = message.content.slice(prefix.length).trim().split(/ +/);
-        text.shift();
-        if (!text[0]) return message.reply("Ne söylememi istersiniz?");
+        const args = message.content.slice(prefix.length).trim().split(/ +/);
+        args.shift();
+        if (!args[0]) return message.reply("Ne söylememi istersiniz?");
+
+        const text = args.join(" ");
+
         message.delete();
 
         message.channel.send({ content: text.toString() });
